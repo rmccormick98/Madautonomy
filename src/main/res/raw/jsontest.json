@@ -1,0 +1,6 @@
+{"Points": [
+  {"Name": "forward", "description": "move forward", "Xpoint": "2.0", "Ypoint": "0"},
+  {"Name": "left", "description": "move left", "Xpoint": "2.0", "Ypoint": "2.0"},
+  {"Name": "left2", "description": "move left", "Xpoint": "0.0", "Ypoint": "2.0"},
+  {"Name": "back", "description": "move back", "Xpoint": "2.0", "Ypoint": "0"}
+]}
