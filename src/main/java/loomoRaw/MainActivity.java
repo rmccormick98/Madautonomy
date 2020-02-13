@@ -5,28 +5,31 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.content.Intent;
+import android.app.IntentService;
 import java.io.IOException;
 
+import loomoRaw.connectivity.*;
 import loomoRaw.base.BaseService;
 
 
 public class MainActivity extends Activity {
     private BaseService base;
     private RawMove move;
+    private InstructionService inst;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.println("Inside main");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getActionBar().setDisplayHomeAsUpEnabled(true);
-       // tourControl = new TourControl();
-//        //DEBUG
-//        try {
-//            tourControl.setupTour(getApplicationContext());
-//        } catch (Exception e){
-//            e.printStackTrace();
-//        }
+
         initServices();
+
+        Intent loomoInstructions = new Intent(this, InstructionService.class);
+        startService(loomoInstructions);
+
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -56,6 +59,7 @@ public class MainActivity extends Activity {
 
     public void initServices(){
         base = new BaseService(getApplicationContext());
+        inst = new InstructionService();
         //speech = new SpeechService(getApplicationContext(), tourControl);
     }
 
